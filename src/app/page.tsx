@@ -1,5 +1,6 @@
 'use client'; // todo: do not use client
 
+import GoogleTitle from './components/GoogleTitle';
 import Header from './components/Header';
 
 export default function Home() {
@@ -49,9 +50,13 @@ export default function Home() {
       console.error(error);
     }
   };
+  // todo: ceck if main tag needed
   return (
     <div className="layoutWrapper">
       <Header />
+      <main className="layoutContent">
+        <GoogleTitle />
+      </main>
       here
       <button onClick={handleSubmit}>sumbit review</button>
     </div>
