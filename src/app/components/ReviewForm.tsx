@@ -28,7 +28,7 @@ export default function ReviewForm() {
                   name="star-selector"
                   aria-label="2 stars: Poor"
                   data-star-selector-star-2="true"
-                  tabIndex={0}
+                  tabIndex={-1}
                   defaultValue={2}
                   className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[44px] z-[1]"
                 />
@@ -46,7 +46,7 @@ export default function ReviewForm() {
                   name="star-selector"
                   aria-label="4 stars: Great"
                   data-star-selector-star-4="true"
-                  tabIndex={-1}
+                  tabIndex={0}
                   defaultValue={4}
                   className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[44px] z-[1]"
                 />
@@ -63,7 +63,7 @@ export default function ReviewForm() {
               <div className="font-normal tracking-[0.5px] box-border flex min-w-[90px] h-[40px] w-[216px]">
                 <img
                   alt=""
-                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-2.svg"
+                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.svg"
                   className="font-normal tracking-[0.5px] box-border max-w-full w-[216px]"
                 />
               </div>
@@ -89,7 +89,7 @@ export default function ReviewForm() {
               <div className="font-normal tracking-[0.5px] box-border text-[rgba(0,0,0,0)] h-[18px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] leading-[24px] border px-[16px] py-[8px] border-solid border-[rgba(0,0,0,0)]" />
             </div>
             <textarea
-              placeholder="What went wrong this time? How can this company improve? Remember to be honest, helpful, and constructive!"
+              placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
               rows={7}
               aria-invalid="false"
               aria-describedby="review-text-helper-text"
@@ -215,6 +215,18 @@ export default function ReviewForm() {
               and you haven’t received an incentive to write it.
             </p>
           </div>
+        </div>
+        <div className="font-normal tracking-[0.5px] box-border flex flex-col mt-[16px] mb-0 mx-0">
+          <button
+            name="submit-review"
+            type="submit"
+            data-submit-review-button="true"
+            className="items-center cursor-pointer flex justify-center min-w-[48px] overflow-hidden text-center whitespace-nowrap select-none box-border h-[48px] bg-[rgb(32,92,212)] text-white font-normal tracking-[0.5px] border px-[32px] py-0 rounded-full border-solid border-[rgba(0,0,0,0)]"
+          >
+            <span className="text-[16px] font-bold tracking-[-0.176px] leading-[19.2px] box-border items-center flex">
+              Submit review
+            </span>
+          </button>
         </div>
       </form>
     </div>

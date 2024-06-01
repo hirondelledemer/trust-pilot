@@ -1,6 +1,5 @@
 'use client'; // todo: do not use client
 
-import Form from './components/Form';
 import GoogleTitle from './components/GoogleTitle';
 import Header from './components/Header';
 import ReviewForm from './components/ReviewForm';
@@ -59,7 +58,6 @@ export default function Home() {
       <main className="layoutContent">
         <GoogleTitle />
         <ReviewForm />
-        {/* <Form /> */}
       </main>
       here
       <button onClick={handleSubmit}>sumbit review</button>
