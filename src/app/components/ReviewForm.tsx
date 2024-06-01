@@ -1,4 +1,7 @@
 'use client';
+
+import Ratings from './Ratings';
+
 export default function ReviewForm() {
   return (
     <div className="font-normal tracking-[0.5px] box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px] border-solid border-[rgb(229,229,221)]">
@@ -13,60 +16,7 @@ export default function ReviewForm() {
           </label>
           <div className="font-normal tracking-[0.5px] box-border">
             <div className="font-normal tracking-[0.5px] box-border">
-              <div className="font-normal tracking-[0.5px] box-border absolute w-[216px]">
-                <input
-                  type="radio"
-                  name="star-selector"
-                  aria-label="1 star: Bad"
-                  data-star-selector-star-1="true"
-                  tabIndex={-1}
-                  defaultValue={1}
-                  className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[42px] z-[1]"
-                />
-                <input
-                  type="radio"
-                  name="star-selector"
-                  aria-label="2 stars: Poor"
-                  data-star-selector-star-2="true"
-                  tabIndex={-1}
-                  defaultValue={2}
-                  className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[44px] z-[1]"
-                />
-                <input
-                  type="radio"
-                  name="star-selector"
-                  aria-label="3 stars: Average"
-                  data-star-selector-star-3="true"
-                  tabIndex={-1}
-                  defaultValue={3}
-                  className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[44px] z-[1]"
-                />
-                <input
-                  type="radio"
-                  name="star-selector"
-                  aria-label="4 stars: Great"
-                  data-star-selector-star-4="true"
-                  tabIndex={0}
-                  defaultValue={4}
-                  className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[44px] z-[1]"
-                />
-                <input
-                  type="radio"
-                  name="star-selector"
-                  aria-label="5 stars: Excellent"
-                  data-star-selector-star-5="true"
-                  tabIndex={-1}
-                  defaultValue={5}
-                  className="font-normal tracking-[0.5px] box-border appearance-none cursor-pointer inline-block h-[40px] relative w-[42px] z-[1]"
-                />
-              </div>
-              <div className="font-normal tracking-[0.5px] box-border flex min-w-[90px] h-[40px] w-[216px]">
-                <img
-                  alt=""
-                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.svg"
-                  className="font-normal tracking-[0.5px] box-border max-w-full w-[216px]"
-                />
-              </div>
+              <Ratings />
             </div>
           </div>
         </div>
