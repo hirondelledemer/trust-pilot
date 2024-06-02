@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="layoutWrapper">
       <Header />
-      <main className="layoutContent">
+      <main className="h-screen">
         <GoogleTitle />
         <ReviewForm />
       </main>
