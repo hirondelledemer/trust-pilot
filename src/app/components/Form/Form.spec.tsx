@@ -58,6 +58,7 @@ describe('Form', () => {
       target: { value: '2024-01-01' },
     });
 
+    screen.logTestingPlaygroundURL();
     fireEvent.submit(driver.getSubmitButton());
 
     await waitFor(() => {

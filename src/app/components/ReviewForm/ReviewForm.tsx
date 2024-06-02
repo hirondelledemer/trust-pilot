@@ -22,7 +22,7 @@ const ReviewForm: FC = () => {
       });
 
       if (data.rating >= 4) {
-        router.push(
+        window.location.assign(
           `https://www.trustpilot.com/evaluate/www.google.com?stars=${data.rating}`
         );
       } else {

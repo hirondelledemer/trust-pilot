@@ -62,6 +62,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 aria-invalid="false"
                 aria-describedby="review-text-helper-text"
                 data-review-text-input="true"
+                aria-label="content"
                 className="font-normal box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                 {...register('content', { required: true, minLength: 10 })}
               />
