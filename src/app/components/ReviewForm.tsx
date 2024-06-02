@@ -1,23 +1,40 @@
 'use client';
 
+import { SubmitHandler, useForm } from 'react-hook-form';
 import Ratings from './Ratings';
 
+type Inputs = {
+  content: string;
+  title: string;
+  date: string;
+  rating: number;
+};
+
 export default function ReviewForm() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
     <div className="font-normal tracking-[0.5px] box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px] border-solid border-[rgb(229,229,221)]">
       <form
         autoComplete="off"
         noValidate
         className="font-normal tracking-[0.5px] box-border"
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="font-normal tracking-[0.5px] box-border flex flex-col">
           <label className="text-[rgb(28,28,28)] text-[18px] font-bold tracking-[-0.198px] leading-[21.6px] box-border block mt-0 mb-[8px] mx-0">
             Rate your recent experience
           </label>
           <div className="font-normal tracking-[0.5px] box-border">
-            <div className="font-normal tracking-[0.5px] box-border">
-              <Ratings />
-            </div>
+            <Ratings control={control} name="rating" />
           </div>
         </div>
         <div className="font-normal tracking-[0.5px] box-border flex flex-col mt-[16px] mb-0 mx-0">
@@ -45,7 +62,7 @@ export default function ReviewForm() {
               aria-describedby="review-text-helper-text"
               data-review-text-input="true"
               className="font-normal tracking-[0.5px] box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] leading-[24px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-              defaultValue={''}
+              {...register('content')}
             />
           </div>
           <a
@@ -75,6 +92,7 @@ export default function ReviewForm() {
                 aria-describedby="review-title-helper-text"
                 data-review-title-input="true"
                 className="text-[16px] font-normal tracking-[0.5px] leading-[22.4px] border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
+                {...register('title')}
               />
               <div
                 role="presentation"
@@ -142,11 +160,8 @@ export default function ReviewForm() {
             <div className="font-normal tracking-[0.5px] box-border">
               <input
                 type="date"
-                min="2023-06-01"
-                max="2024-06-01"
-                aria-invalid="false"
-                data-date-of-experience-input="true"
                 className="text-[14px] font-normal tracking-[0.5px] leading-[19.6px] border box-border text-[rgb(28,28,28)] flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
+                {...register('date')}
               />
             </div>
           </div>
