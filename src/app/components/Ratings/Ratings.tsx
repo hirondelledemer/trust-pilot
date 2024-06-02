@@ -2,9 +2,9 @@
 
 import { FC, useState } from 'react';
 import { Control, useController } from 'react-hook-form';
-import { Inputs } from './ReviewForm.utils';
+import { Inputs } from '../ReviewForm.utils';
 
-interface RatingsProps {
+export interface RatingsProps {
   control: Control<Inputs>;
   name: keyof Inputs;
 }
@@ -57,7 +57,7 @@ const Ratings: FC<RatingsProps> = ({ control, name }) => {
       </div>
       <div className="font-normal tracking-[0.5px] box-border flex min-w-[90px] h-[40px] w-[216px]">
         <img
-          alt=""
+          alt="ratings"
           src={`https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-${
             hoveredRating || value || 0
           }.svg`}

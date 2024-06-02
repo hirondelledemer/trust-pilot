@@ -1,11 +1,11 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import Ratings from './Ratings';
-import { Inputs } from './ReviewForm.utils';
+import Ratings from '../Ratings/Ratings';
+import { Inputs } from '../ReviewForm.utils';
 import { FC } from 'react';
 
-interface FormProps {
+export interface FormProps {
   onSubmit(data: Inputs): void;
 }
 
@@ -174,6 +174,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               <div className="font-normal tracking-[0.5px] box-border">
                 <input
                   type="date"
+                  placeholder="mm/dd/yyyy"
                   className="text-[14px] font-normal tracking-[0.5px] leading-[19.6px] border box-border text-[rgb(28,28,28)] flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                   {...register('date', { required: true })}
                 />
