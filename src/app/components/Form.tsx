@@ -3,18 +3,22 @@
 import { useForm } from 'react-hook-form';
 import Ratings from './Ratings';
 import { Inputs } from './ReviewForm.utils';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 interface FormProps {
   onSubmit(data: Inputs): void;
 }
 
 const Form: FC<FormProps> = ({ onSubmit }) => {
-  const { register, handleSubmit, control, watch } = useForm<Inputs>();
-  const [fieldsShown, setFieldsShown] = useState<boolean>(false);
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
 
   const watchRatingCheck = watch('rating');
-  console.log(watchRatingCheck);
 
   return (
     <div className="font-normal tracking-[0.5px] box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px] border-solid border-[rgb(229,229,221)]">
@@ -58,8 +62,13 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 aria-describedby="review-text-helper-text"
                 data-review-text-input="true"
                 className="font-normal tracking-[0.5px] box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] leading-[24px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                {...register('content')}
+                {...register('content', { required: true })}
               />
+              {errors.content && (
+                <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
+                  Your review must be at least 10 characters.
+                </span>
+              )}
             </div>
             <a
               href="https://support.trustpilot.com/hc/articles/223402108"
@@ -90,7 +99,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   aria-describedby="review-title-helper-text"
                   data-review-title-input="true"
                   className="text-[16px] font-normal tracking-[0.5px] leading-[22.4px] border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('title')}
+                  {...register('title', { required: true })}
                 />
                 <div
                   role="presentation"
@@ -114,6 +123,11 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 </div>
               </div>
             </div>
+            {errors.title && (
+              <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
+                Your title must be at least 4 characters.
+              </span>
+            )}
           </div>
         )}
         {watchRatingCheck && (
@@ -161,8 +175,14 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 <input
                   type="date"
                   className="text-[14px] font-normal tracking-[0.5px] leading-[19.6px] border box-border text-[rgb(28,28,28)] flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('date')}
+                  {...register('date', { required: true })}
                 />
+                {errors.date && (
+                  <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
+                    Please confirm when you had this experience. If you don’t
+                    know the exact date, you can estimate.
+                  </span>
+                )}
               </div>
             </div>
           </div>
