@@ -5,12 +5,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Upgrade Yarn
-        run: yarn upgrade
       - name: Install modules
-        run: yarn
+        run: npm i
       - name: Run tests
-        run: yarn test
+        run: npm run test
   run-e2e:
     timeout-minutes: 60
     runs-on: macos-latest
@@ -29,10 +27,8 @@ jobs:
           vercel_project_id: 'prj_P0FMb4wUXsRvtA2TSvXXV3Wvc4tU'
       - name: Get URL
         run: echo "https://${{ steps.vercel_preview_url.outputs.preview_url }}"
-      - name: Upgrade Yarn
-        run: yarn upgrade
       - name: Install modules
-        run: yarn
+        run: npm i
       - name: Install playwright
         run: npx playwright install
       - name: Build
