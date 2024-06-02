@@ -2,22 +2,10 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Ratings from './Ratings';
-
-type Inputs = {
-  content: string;
-  title: string;
-  date: string;
-  rating: number;
-};
+import { Inputs } from './ReviewForm.utils';
 
 export default function ReviewForm() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    control,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit, control } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
