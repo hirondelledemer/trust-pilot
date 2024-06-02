@@ -3,11 +3,26 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Ratings from './Ratings';
 import { Inputs } from './ReviewForm.utils';
+import { FC } from 'react';
 
-export default function ReviewForm() {
+const ReviewForm: FC = () => {
   const { register, handleSubmit, control } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...data,
+          date: new Date(data.date).toISOString(),
+        }),
+      });
+      // await Router.push('/drafts');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="font-normal tracking-[0.5px] box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px] border-solid border-[rgb(229,229,221)]">
@@ -184,4 +199,6 @@ export default function ReviewForm() {
       </form>
     </div>
   );
-}
+};
+
+export default ReviewForm;

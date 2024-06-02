@@ -1,5 +1,3 @@
-'use client'; // todo: do not use client
-
 export default function GoogleTitle() {
   return (
     <div className="font-normal tracking-[0.5px] box-border bg-white p-[24px] border-b-[rgb(229,229,221)] border-b border-solid">
