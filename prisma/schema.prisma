@@ -8,7 +8,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource trust-pilot {
+datasource trustpilot {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }

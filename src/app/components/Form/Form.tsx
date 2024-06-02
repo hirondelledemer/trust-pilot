@@ -63,7 +63,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 aria-describedby="review-text-helper-text"
                 data-review-text-input="true"
                 className="font-normal box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                {...register('content', { required: true, min: 10 })}
+                {...register('content', { required: true, minLength: 10 })}
               />
               {errors.content && (
                 <Error>Your review must be at least 10 characters.</Error>
@@ -98,7 +98,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   aria-describedby="review-title-helper-text"
                   data-review-title-input="true"
                   className="text-[16px] font-normal border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('title', { required: true, min: 4 })}
+                  {...register('title', { required: true, minLength: 4 })}
                 />
                 <div
                   role="presentation"
