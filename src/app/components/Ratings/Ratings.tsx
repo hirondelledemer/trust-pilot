@@ -2,7 +2,7 @@
 
 import { FC, useState } from 'react';
 import { Control, useController } from 'react-hook-form';
-import { Inputs } from '../ReviewForm.utils';
+import { Inputs } from '../ReviewForm/ReviewForm.utils';
 
 export interface RatingsProps {
   control: Control<Inputs>;

@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import Ratings from '../Ratings/Ratings';
-import { Inputs } from '../ReviewForm.utils';
+import { Inputs } from '../ReviewForm/ReviewForm.utils';
 import { FC } from 'react';
 
 export interface FormProps {

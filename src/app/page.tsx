@@ -1,6 +1,6 @@
 import GoogleTitle from './components/GoogleTitle';
 import Header from './components/Header';
-import ReviewForm from './components/ReviewForm';
+import ReviewForm from './components/ReviewForm/ReviewForm';
 
 export default function Home() {
   return (

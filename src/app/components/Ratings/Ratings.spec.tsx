@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Ratings from './Ratings';
 import { useForm } from 'react-hook-form';
-import { Inputs } from '../ReviewForm.utils';
+import { Inputs } from '../ReviewForm/ReviewForm.utils';
 
 describe('Ratings', () => {
   it('should show image without stars', async () => {

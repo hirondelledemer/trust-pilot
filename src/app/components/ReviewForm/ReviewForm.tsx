@@ -4,11 +4,11 @@ import { SubmitHandler } from 'react-hook-form';
 import { Inputs } from './ReviewForm.utils';
 import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Form from './Form/Form';
+import Form from '../Form/Form';
 
 const ReviewForm: FC = () => {
   const router = useRouter();
-  const [isSubmitted, setIsSubmited] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -26,7 +26,7 @@ const ReviewForm: FC = () => {
           `https://www.trustpilot.com/evaluate/www.google.com?stars=${data.rating}`
         );
       } else {
-        setIsSubmited(true);
+        setIsSubmitted(true);
       }
     } catch (error) {
       console.error(error);
