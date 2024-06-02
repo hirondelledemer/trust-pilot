@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import Ratings from '../Ratings/Ratings';
 import { Inputs } from '../ReviewForm/ReviewForm.utils';
 import { FC } from 'react';
+import Error from '../Error';
 
 export interface FormProps {
   onSubmit(data: Inputs): void;
@@ -62,12 +63,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 aria-describedby="review-text-helper-text"
                 data-review-text-input="true"
                 className="font-normal tracking-[0.5px] box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] leading-[24px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                {...register('content', { required: true })}
+                {...register('content', { required: true, min: 10 })}
               />
               {errors.content && (
-                <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
-                  Your review must be at least 10 characters.
-                </span>
+                <Error>Your review must be at least 10 characters.</Error>
               )}
             </div>
             <a
@@ -99,7 +98,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   aria-describedby="review-title-helper-text"
                   data-review-title-input="true"
                   className="text-[16px] font-normal tracking-[0.5px] leading-[22.4px] border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('title', { required: true })}
+                  {...register('title', { required: true, min: 4 })}
                 />
                 <div
                   role="presentation"
@@ -124,9 +123,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               </div>
             </div>
             {errors.title && (
-              <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
-                Your title must be at least 4 characters.
-              </span>
+              <Error>Your title must be at least 4 characters.</Error>
             )}
           </div>
         )}
@@ -179,10 +176,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   {...register('date', { required: true })}
                 />
                 {errors.date && (
-                  <span className="text-[rgb(208,30,8)] text-[14px] font-normal tracking-[0.154px] leading-[19.6px] box-border inline-block bg-white mt-[8px] mb-0 mx-0">
+                  <Error>
                     Please confirm when you had this experience. If you don’t
                     know the exact date, you can estimate.
-                  </span>
+                  </Error>
                 )}
               </div>
             </div>
