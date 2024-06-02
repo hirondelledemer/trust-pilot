@@ -8,61 +8,35 @@ describe('Form', () => {
 
   it('should show only ratings field', () => {
     render(<Form {...defaultProps} />);
-    const ratingsImage = screen.getByRole('img');
-    const star2 = screen.getByRole('radio', {
-      name: /2 stars: poor/i,
-    });
+    const driver = getDriver();
 
-    const inputs = screen.queryAllByRole('textbox');
-
-    expect(ratingsImage).toBeDefined();
-    expect(inputs.length).toBe(0);
+    expect(driver.getRatingsImage()).toBeDefined();
+    expect(driver.getInputs().length).toBe(0);
   });
 
   it('should show all form when star is clicked', () => {
     render(<Form {...defaultProps} />);
+    const driver = getDriver();
 
-    const ratingsImage = screen.getByRole('img');
-    const star2 = screen.getByRole('radio', {
-      name: /2 stars: poor/i,
-    });
-    fireEvent.click(star2);
+    fireEvent.click(driver.getStar2Button());
 
-    const [contentInput, titleInput] = screen.queryAllByRole('textbox');
-    const dateInput = screen.getByPlaceholderText(/mm\/dd\/yyyy/i);
-
-    expect(ratingsImage).toBeDefined();
-    expect(contentInput).toBeDefined();
-    expect(titleInput).toBeDefined();
-    expect(dateInput).toBeDefined();
+    expect(driver.getRatingsImage()).toBeDefined();
+    expect(driver.getContentInput()).toBeDefined();
+    expect(driver.getTitleInput()).toBeDefined();
+    expect(driver.getDateInput()).toBeDefined();
   });
 
   it('should show errors if fields are not filled', async () => {
     render(<Form {...defaultProps} />);
+    const driver = getDriver();
 
-    const star2 = screen.getByRole('radio', {
-      name: /2 stars: poor/i,
-    });
-    fireEvent.click(star2);
-
-    const submitButton = screen.getByRole('button', {
-      name: /submit review/i,
-    });
-
-    fireEvent.submit(submitButton);
+    fireEvent.click(driver.getStar2Button());
+    fireEvent.submit(driver.getSubmitButton());
 
     await waitFor(() => {
-      expect(
-        screen.getByText('Your review must be at least 10 characters.')
-      ).toBeDefined();
-      expect(
-        screen.getByText('Your title must be at least 4 characters.')
-      ).toBeDefined();
-      expect(
-        screen.getByText(
-          'Please confirm when you had this experience. If you don’t know the exact date, you can estimate.'
-        )
-      ).toBeDefined();
+      expect(driver.getContentError()).toBeDefined();
+      expect(driver.getTitleError()).toBeDefined();
+      expect(driver.getDateError()).toBeDefined();
     });
   });
 
@@ -70,23 +44,21 @@ describe('Form', () => {
     const submitSpy = jest.fn();
 
     render(<Form onSubmit={submitSpy} />);
+    const driver = getDriver();
 
-    const star2 = screen.getByRole('radio', {
-      name: /2 stars: poor/i,
+    fireEvent.click(driver.getStar2Button());
+
+    fireEvent.change(driver.getContentInput(), {
+      target: { value: 'This is a review' },
     });
-    fireEvent.click(star2);
-    const [contentInput, titleInput] = screen.queryAllByRole('textbox');
-    const dateInput = screen.getByPlaceholderText(/mm\/dd\/yyyy/i);
-
-    const submitButton = screen.getByRole('button', {
-      name: /submit review/i,
+    fireEvent.change(driver.getTitleInput(), {
+      target: { value: 'This is a review' },
+    });
+    fireEvent.change(driver.getDateInput(), {
+      target: { value: '2024-01-01' },
     });
 
-    fireEvent.change(contentInput, { target: { value: 'This is a review' } });
-    fireEvent.change(titleInput, { target: { value: 'This is a review' } });
-    fireEvent.change(dateInput, { target: { value: '2024-01-01' } });
-
-    fireEvent.submit(submitButton);
+    fireEvent.submit(driver.getSubmitButton());
 
     await waitFor(() => {
       expect(submitSpy).toHaveBeenCalledWith(
@@ -100,4 +72,28 @@ describe('Form', () => {
       );
     });
   });
+});
+
+const getDriver = () => ({
+  getRatingsImage: () => screen.getByRole('img'),
+  getInputs: () => screen.queryAllByRole('textbox'),
+  getContentInput: () => screen.queryAllByRole('textbox')[0],
+  getTitleInput: () => screen.queryAllByRole('textbox')[1],
+  getDateInput: () => screen.getByPlaceholderText(/mm\/dd\/yyyy/i),
+  getSubmitButton: () =>
+    screen.getByRole('button', {
+      name: /submit review/i,
+    }),
+  getStar2Button: () =>
+    screen.getByRole('radio', {
+      name: /2 stars: poor/i,
+    }),
+  getContentError: () =>
+    screen.getByText('Your review must be at least 10 characters.'),
+  getTitleError: () =>
+    screen.getByText('Your title must be at least 4 characters.'),
+  getDateError: () =>
+    screen.getByText(
+      'Please confirm when you had this experience. If you don’t know the exact date, you can estimate.'
+    ),
 });
