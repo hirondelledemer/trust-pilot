@@ -61,7 +61,6 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 rows={7}
                 aria-invalid="false"
                 aria-describedby="review-text-helper-text"
-                data-review-text-input="true"
                 aria-label="content"
                 className="font-normal box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                 {...register('content', { required: true, minLength: 10 })}
@@ -97,7 +96,6 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   type="text"
                   aria-invalid="false"
                   aria-describedby="review-title-helper-text"
-                  data-review-title-input="true"
                   className="text-[16px] font-normal border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
                   {...register('title', { required: true, minLength: 4 })}
                 />
@@ -208,7 +206,6 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             <button
               name="submit-review"
               type="submit"
-              data-submit-review-button="true"
               className="items-center cursor-pointer flex justify-center min-w-[48px] overflow-hidden text-center whitespace-nowrap select-none box-border h-[48px] bg-[rgb(32,92,212)] text-white font-normal border px-[32px] py-0 rounded-full border-solid border-[rgba(0,0,0,0)]"
             >
               <span className="text-[16px] font-bold box-border items-center flex">

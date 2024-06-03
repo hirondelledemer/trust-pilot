@@ -15,8 +15,8 @@ datasource trustpilot {
 
 model Review {
   id        String     @default(cuid()) @id
-  rating    Int // todo: add restrictions
-  content   String // min 10 characters
-  title     String // min 4 characters
+  rating    Int
+  content   String
+  title     String
   date      DateTime   @default(now())
 }

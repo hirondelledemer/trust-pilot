@@ -3,11 +3,9 @@
 import { SubmitHandler } from 'react-hook-form';
 import { Inputs } from './ReviewForm.utils';
 import { FC, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Form from '../Form/Form';
 
 const ReviewForm: FC = () => {
-  const router = useRouter();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
