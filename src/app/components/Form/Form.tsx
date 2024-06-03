@@ -22,7 +22,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
   const watchRatingCheck = watch('rating');
 
   return (
-    <div className="font-normal box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px] border-solid border-[rgb(229,229,221)]">
+    <div className="font-normal box-border bg-white border max-w-[510px] overflow-hidden mt-[16px] mb-0 mx-[697.5px] p-[24px] rounded-[8px]">
       <form
         autoComplete="off"
         noValidate
@@ -30,7 +30,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="font-normal box-border flex flex-col">
-          <label className="text-[rgb(28,28,28)] text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0">
+          <label className="text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0">
             Rate your recent experience
           </label>
           <div className="font-normal box-border">
@@ -41,7 +41,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
           <div className="font-normal box-border flex flex-col mt-[16px] mb-0 mx-0">
             <label
               htmlFor="review-text"
-              className="text-[rgb(28,28,28)] text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0"
+              className="text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0"
             >
               Tell us more about your experience
             </label>
@@ -54,7 +54,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </a>
             <div className="font-normal box-border relative w-[460px]">
               <div className="font-normal box-border absolute inset-0">
-                <div className="font-normal box-border text-[rgba(0,0,0,0)] h-[18px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border px-[16px] py-[8px] border-solid border-[rgba(0,0,0,0)]" />
+                <div className="font-normal box-border h-[18px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border px-[16px] py-[8px] border-solid border-[rgba(0,0,0,0)]" />
               </div>
               <textarea
                 placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
@@ -62,7 +62,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 aria-invalid="false"
                 aria-describedby="review-text-helper-text"
                 aria-label="content"
-                className="font-normal box-border relative border text-[rgb(28,28,28)] block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
+                className="font-normal box-border relative border block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                 {...register('content', { required: true, minLength: 10 })}
               />
               {errors.content && (
@@ -82,13 +82,13 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
           <div className="font-normal box-border flex flex-col mt-[16px] mb-0 mx-0">
             <label
               htmlFor="review-title"
-              className="text-[rgb(28,28,28)] text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0"
+              className="text-[18px] font-bold box-border block mt-0 mb-[8px] mx-0"
             >
               Give your review a title
             </label>
             <div className="font-normal box-border relative w-[460px] h-[48px]">
               <div className="font-normal box-border absolute inset-0">
-                <div className="font-normal box-border text-[rgba(0,0,0,0)] h-[24px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border pt-[12px] pb-[10px] px-[16px] border-solid border-[rgba(0,0,0,0)]" />
+                <div className="font-normal box-border h-[24px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border pt-[12px] pb-[10px] px-[16px]" />
               </div>
               <div className="font-normal box-border relative flex w-[460px] rounded-[4px]">
                 <input
@@ -96,7 +96,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   type="text"
                   aria-invalid="false"
                   aria-describedby="review-title-helper-text"
-                  className="text-[16px] font-normal border box-border text-[rgb(28,28,28)] block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
+                  className="text-[16px] font-normal border box-border block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
                   {...register('title', { required: true, minLength: 4 })}
                 />
                 <div
@@ -132,7 +132,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               <div className="font-normal box-border flex mt-0 mb-[8px] mx-0">
                 <label
                   htmlFor="review-date-of-experience"
-                  className="text-[rgb(28,28,28)] text-[18px] font-bold box-border items-center flex"
+                  className="text-[18px] font-bold box-border items-center flex"
                 >
                   Date of experience
                 </label>
@@ -171,7 +171,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 <input
                   type="date"
                   placeholder="mm/dd/yyyy"
-                  className="text-[14px] font-normal border box-border text-[rgb(28,28,28)] flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
+                  className="text-[14px] font-normal border box-border flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                   {...register('date', { required: true })}
                 />
                 {errors.date && (
@@ -187,7 +187,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
         {watchRatingCheck && (
           <div className="font-normal box-border flex flex-col mt-[16px] mb-0 mx-0">
             <div className="font-normal box-border block text-[16px] text-left mt-[16px] mb-0 mx-0">
-              <p className="text-[rgb(28,28,28)] text-[14px] font-normal box-border m-0">
+              <p className="text-[14px] font-normal box-border m-0">
                 By submitting this review, you confirm it’s
                 <a
                   href="https://support.trustpilot.com/hc/articles/205675248"
@@ -206,7 +206,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             <button
               name="submit-review"
               type="submit"
-              className="items-center cursor-pointer flex justify-center min-w-[48px] overflow-hidden text-center whitespace-nowrap select-none box-border h-[48px] bg-[rgb(32,92,212)] text-white font-normal border px-[32px] py-0 rounded-full border-solid border-[rgba(0,0,0,0)]"
+              className="items-center cursor-pointer flex justify-center min-w-[48px] overflow-hidden text-center whitespace-nowrap select-none box-border h-[48px] bg-[rgb(32,92,212)] text-white font-normal border px-[32px] py-0 rounded-full"
             >
               <span className="text-[16px] font-bold box-border items-center flex">
                 Submit review
