@@ -5,6 +5,8 @@ import Ratings from '../Ratings/Ratings';
 import { Inputs } from '../ReviewForm/ReviewForm.utils';
 import { FC } from 'react';
 import Error from '../Error';
+import Button from '../Button';
+import Link from '../Link';
 
 export interface FormProps {
   onSubmit(data: Inputs): void;
@@ -40,13 +42,13 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             >
               Tell us more about your experience
             </label>
-            <a
+            <Link
               href="https://legal.trustpilot.com/for-reviewers/guidelines-for-reviewers"
               target="_blank"
-              className="text-[rgb(32,92,212)] text-[14px] mt-[4px] mb-[16px] mx-0"
+              className="mt-[4px] mb-[16px] mx-0"
             >
               Read our Guidelines for Reviewers
-            </a>
+            </Link>
             <div className="relative w-[460px]">
               <div className="absolute inset-0">
                 <div className="h-[18px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border px-[16px] py-[8px] border-solid border-[rgba(0,0,0,0)]" />
@@ -64,13 +66,14 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 <Error>Your review must be at least 10 characters.</Error>
               )}
             </div>
-            <a
+
+            <Link
               href="https://support.trustpilot.com/hc/articles/223402108"
               target="_blank"
-              className="text-[rgb(32,92,212)] text-[14px] mt-[16px] mb-0 mx-0"
+              className="mt-[16px] mb-0 mx-0"
             >
               How to write a useful review
-            </a>
+            </Link>
           </div>
         )}
         {watchRatingCheck && (
@@ -180,13 +183,13 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             <div className="block text-[16px] text-left mt-[16px] mb-0 mx-0">
               <p className="text-[14px] m-0">
                 By submitting this review, you confirm it’s
-                <a
+                <Link
                   href="https://support.trustpilot.com/hc/articles/205675248"
                   target="_blank"
-                  className="text-[rgb(32,92,212)] mx-1"
+                  className="mx-1"
                 >
                   based on a genuine experience
-                </a>
+                </Link>
                 and you haven’t received an incentive to write it.
               </p>
             </div>
@@ -194,15 +197,9 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
         )}
         {watchRatingCheck && (
           <div className="flex flex-col mt-[16px] mb-0 mx-0">
-            <button
-              name="submit-review"
-              type="submit"
-              className="items-center cursor-pointer flex justify-center min-w-[48px] overflow-hidden text-center whitespace-nowrap select-none h-[48px] bg-[rgb(32,92,212)] text-white border px-[32px] py-0 rounded-full"
-            >
-              <span className="text-[16px] font-bold items-center flex">
-                Submit review
-              </span>
-            </button>
+            <Button name="submit-review" type="submit">
+              Submit review
+            </Button>
           </div>
         )}
       </form>
