@@ -7,6 +7,7 @@ import { FC } from 'react';
 import Error from '../Error';
 import Button from '../Button';
 import Link from '../Link';
+import FormSection from './FormSection';
 
 export interface FormProps {
   onSubmit(data: Inputs): void;
@@ -36,7 +37,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </div>
           </div>
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px]">
+            <FormSection>
               <label
                 htmlFor="review-text"
                 className="text-[18px] font-bold mb-[8px]"
@@ -72,10 +73,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               >
                 How to write a useful review
               </Link>
-            </div>
+            </FormSection>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px]">
+            <FormSection>
               <label
                 htmlFor="review-title"
                 className="text-[18px] font-bold block mb-[8px]"
@@ -116,10 +117,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               {errors.title && (
                 <Error>Your title must be at least 4 characters.</Error>
               )}
-            </div>
+            </FormSection>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px]">
+            <FormSection>
               <div className="block relative">
                 <div className="flex mb-[8px]">
                   <label
@@ -171,10 +172,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   )}
                 </div>
               </div>
-            </div>
+            </FormSection>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px]">
+            <FormSection>
               <div className="block text-[16px] text-left mt-[16px]">
                 <p className="text-[14px]">
                   By submitting this review, you confirm it’s
@@ -188,14 +189,14 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   and you haven’t received an incentive to write it.
                 </p>
               </div>
-            </div>
+            </FormSection>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px]">
+            <FormSection>
               <Button name="submit-review" type="submit">
                 Submit review
               </Button>
-            </div>
+            </FormSection>
           )}
         </form>
       </div>
