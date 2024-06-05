@@ -34,12 +34,10 @@ const ReviewForm: FC = () => {
   if (isSubmitted) {
     return (
       <div className="flex justify-center">
-        <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] mb-0 p-[24px] rounded-[8px]">
-          <div className="flex flex-col">
-            <label className="text-[rgb(28,28,28)] text-[18px] font-bold tracking-[-0.198px] leading-[21.6px] block mt-0 mb-[8px] mx-0">
-              Thanks for your review!
-            </label>
-          </div>
+        <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] p-[24px] rounded-[8px]">
+          <label className="text-[rgb(28,28,28)] text-[18px] font-bold mb-[8px]">
+            Thanks for your review!
+          </label>
         </div>
       </div>
     );

@@ -25,10 +25,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] mb-0 p-[24px] rounded-[8px]">
+      <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] p-[24px] rounded-[8px]">
         <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-            <label className="text-[18px] font-bold block mt-0 mb-[8px] mx-0">
+            <label className="text-[18px] font-bold mb-[8px]">
               Rate your recent experience
             </label>
             <div>
@@ -36,24 +36,21 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </div>
           </div>
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px] mb-0 mx-0">
+            <div className="flex flex-col mt-[16px]">
               <label
                 htmlFor="review-text"
-                className="text-[18px] font-bold block mt-0 mb-[8px] mx-0"
+                className="text-[18px] font-bold mb-[8px]"
               >
                 Tell us more about your experience
               </label>
               <Link
                 href="https://legal.trustpilot.com/for-reviewers/guidelines-for-reviewers"
                 target="_blank"
-                className="mt-[4px] mb-[16px] mx-0"
+                className="mt-[4px] mb-[16px]"
               >
                 Read our Guidelines for Reviewers
               </Link>
               <div className="relative w-[460px]">
-                <div className="absolute inset-0">
-                  <div className="h-[18px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border px-[16px] py-[8px] border-solid border-[rgba(0,0,0,0)]" />
-                </div>
                 <textarea
                   placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
                   rows={7}
@@ -71,25 +68,22 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               <Link
                 href="https://support.trustpilot.com/hc/articles/223402108"
                 target="_blank"
-                className="mt-[16px] mb-0 mx-0"
+                className="mt-[16px]"
               >
                 How to write a useful review
               </Link>
             </div>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px] mb-0 mx-0">
+            <div className="flex flex-col mt-[16px]">
               <label
                 htmlFor="review-title"
-                className="text-[18px] font-bold block mt-0 mb-[8px] mx-0"
+                className="text-[18px] font-bold block mb-[8px]"
               >
                 Give your review a title
               </label>
               <div className="relative w-[460px] h-[48px]">
-                <div className="absolute inset-0">
-                  <div className="h-[24px] overflow-hidden break-words absolute whitespace-pre-wrap w-[34px] text-[16px] border pt-[12px] pb-[10px] px-[16px]" />
-                </div>
-                <div className="relative flex w-[460px] rounded-[4px]">
+                <div className="relative flex w-[460px]">
                   <input
                     placeholder="What's important for people to know?"
                     type="text"
@@ -100,7 +94,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   />
                   <div
                     role="presentation"
-                    className="items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] flex justify-center w-[43.2344px] rounded-tr-[4px] rounded-br-[4px] border-l-0 border-l-[rgb(105,106,106)] border-none"
+                    className="items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] flex justify-center w-[43.2344px] border-l-[rgb(105,106,106)] border-none"
                   >
                     <svg
                       viewBox="0 0 16 16"
@@ -125,9 +119,9 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </div>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px] mb-0 mx-0">
+            <div className="flex flex-col mt-[16px]">
               <div className="block relative">
-                <div className="flex mt-0 mb-[8px] mx-0">
+                <div className="flex mb-[8px]">
                   <label
                     htmlFor="review-date-of-experience"
                     className="text-[18px] font-bold items-center flex"
@@ -146,7 +140,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         width="16px"
                         height="16px"
-                        className="align-middle fill-[rgb(105,106,106)] ml-[4px] mr-0 my-0"
+                        className="align-middle fill-[rgb(105,106,106)] ml-[4px]"
                       >
                         <path
                           fillRule="evenodd"
@@ -180,9 +174,9 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </div>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px] mb-0 mx-0">
-              <div className="block text-[16px] text-left mt-[16px] mb-0 mx-0">
-                <p className="text-[14px] m-0">
+            <div className="flex flex-col mt-[16px]">
+              <div className="block text-[16px] text-left mt-[16px]">
+                <p className="text-[14px]">
                   By submitting this review, you confirm it’s
                   <Link
                     href="https://support.trustpilot.com/hc/articles/205675248"
@@ -197,7 +191,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             </div>
           )}
           {watchRatingCheck && (
-            <div className="flex flex-col mt-[16px] mb-0 mx-0">
+            <div className="flex flex-col mt-[16px]">
               <Button name="submit-review" type="submit">
                 Submit review
               </Button>
