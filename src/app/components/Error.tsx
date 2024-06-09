@@ -4,7 +4,7 @@ interface ErrorProps {
   children: ReactNode;
 }
 const Error: FC<ErrorProps> = ({ children }) => (
-  <span className="text-[rgb(208,30,8)] text-[14px] font-normal box-border inline-block bg-white mt-[8px] mb-0 mx-0">
+  <span className="text-error text-[14px] font-normal box-border inline-block bg-white mt-[8px] mb-0 mx-0">
     {children}
   </span>
 );

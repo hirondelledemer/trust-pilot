@@ -9,15 +9,13 @@ const EditInput = forwardRef<HTMLInputElement, EditInputProps>(
   ({ className, error, ...restProps }, ref) => {
     const merged = clsx(
       'text-[16px] border w-full px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid',
-      !!error ? 'border-[rgb(208,30,8)]' : 'border-[rgb(105,106,106)]',
+      !!error ? 'border-error' : 'border-default',
       className
     );
 
     const iconMerged = clsx(
       'flex justify-center items-center bg-[rgb(227,228,228)] min-w-[43px] border border-l-0 border-solid rounded-[0px_4px_4px_0px]',
-      !!error
-        ? 'border-[rgb(208,30,8)] fill-[rgb(208,30,8)]'
-        : 'border-[rgb(105,106,106)] fill-[rgb(105,106,106)]'
+      !!error ? 'border-error fill-error' : 'border-default fill-default'
     );
     return (
       <div>

@@ -10,7 +10,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, error, ...restProps }, ref) => {
     const merged = clsx(
       'text-[16px] h-[186px] resize-none w-full px-[16px] py-[8px] rounded-[4px] border border-solid',
-      !!error ? 'border-[rgb(208,30,8)]' : 'border-[rgb(105,106,106)]',
+      !!error ? 'border-error' : 'border-default',
       className
     );
     console.log(error);

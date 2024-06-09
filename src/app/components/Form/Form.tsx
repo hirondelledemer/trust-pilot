@@ -113,7 +113,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                           xmlns="http://www.w3.org/2000/svg"
                           width="16px"
                           height="16px"
-                          className="align-middle fill-[rgb(105,106,106)] ml-[4px]"
+                          className="align-middle fill-default ml-[4px]"
                         >
                           <path
                             fillRule="evenodd"

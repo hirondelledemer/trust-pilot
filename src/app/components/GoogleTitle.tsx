@@ -16,9 +16,7 @@ export default function GoogleTitle() {
             <h1 className="text-[rgb(28,28,28)] text-[16px] font-bold">
               Google
             </h1>
-            <p className="text-[rgb(105,106,106)] text-[16px]">
-              www.google.com
-            </p>
+            <p className="text-default text-[16px]">www.google.com</p>
           </span>
         </div>
       </div>
