@@ -1,10 +1,9 @@
 import { forwardRef } from 'react';
-import Error from './Error';
-import { FieldError } from 'react-hook-form';
 import clsx from 'clsx';
+import Error from './Error';
 
 interface DateInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  error?: FieldError;
+  error?: string;
 }
 const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
   ({ className, error, ...restProps }, ref) => {
@@ -20,12 +19,7 @@ const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
       <div>
         <input ref={ref} type="date" className={merged} {...restProps} />
 
-        {error && (
-          <Error>
-            Please confirm when you had this experience. If you don’t know the
-            exact date, you can estimate.
-          </Error>
-        )}
+        {error && <Error>{error}</Error>}
       </div>
     );
   }

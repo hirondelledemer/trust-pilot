@@ -1,10 +1,9 @@
 import { forwardRef } from 'react';
-import Error from './Error';
-import { FieldError } from 'react-hook-form';
 import clsx from 'clsx';
+import Error from './Error';
 
 interface EditInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  error?: FieldError;
+  error?: string;
 }
 const EditInput = forwardRef<HTMLInputElement, EditInputProps>(
   ({ className, error, ...restProps }, ref) => {
@@ -41,7 +40,7 @@ const EditInput = forwardRef<HTMLInputElement, EditInputProps>(
           </div>
         </div>
 
-        {error && <Error>Your title must be at least 4 characters.</Error>}
+        {error && <Error>{error}</Error>}
       </div>
     );
   }

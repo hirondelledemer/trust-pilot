@@ -58,7 +58,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
                 rows={7}
                 aria-label="content"
-                error={errors.content}
+                error={
+                  errors.content &&
+                  'Your review must be at least 10 characters.'
+                }
                 {...register('content', { required: true, minLength: 10 })}
               />
               <Link
@@ -80,7 +83,9 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               </label>
               <EditInput
                 placeholder="What's important for people to know?"
-                error={errors.title}
+                error={
+                  errors.title && 'Your title must be at least 4 characters.'
+                }
                 {...register('title', { required: true, minLength: 4 })}
               />
             </FormSection>
@@ -128,7 +133,10 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                 <DateInput
                   placeholder="mm/dd/yyyy"
                   {...register('date', { required: true })}
-                  error={errors.date}
+                  error={
+                    errors.date &&
+                    'Please confirm when you had this experience. If you don’t know the exact date, you can estimate.'
+                  }
                 />
               </div>
             </FormSection>

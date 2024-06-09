@@ -1,11 +1,10 @@
 import { forwardRef } from 'react';
-import Error from './Error';
-import { FieldError } from 'react-hook-form';
 import clsx from 'clsx';
+import Error from './Error';
 
 interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  error?: FieldError;
+  error?: string;
 }
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, error, ...restProps }, ref) => {
@@ -19,7 +18,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div>
         <textarea ref={ref} className={merged} {...restProps} />
-        {error && <Error>Your review must be at least 10 characters.</Error>}
+        {error && <Error>{error}</Error>}
       </div>
     );
   }
