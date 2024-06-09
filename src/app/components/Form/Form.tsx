@@ -93,10 +93,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   className="text-[16px] border w-full px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
                   {...register('title', { required: true, minLength: 4 })}
                 />
-                <div
-                  role="presentation"
-                  className="items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] flex justify-center w-[43.2344px] border-l-[rgb(105,106,106)] border-none"
-                >
+                <div className="flex justify-center items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] min-w-[43px] border border-l-0 border-solid border-[rgb(105,106,106)] rounded-[0px_4px_4px_0px]">
                   <svg
                     viewBox="0 0 16 16"
                     fill="inherit"
