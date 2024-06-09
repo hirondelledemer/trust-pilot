@@ -4,11 +4,13 @@ import { useForm } from 'react-hook-form';
 import Ratings from '../Ratings/Ratings';
 import { Inputs } from '../ReviewForm/ReviewForm.utils';
 import { FC } from 'react';
-import Error from '../Error';
 import Button from '../Button';
 import Link from '../Link';
 import FormSection from './FormSection';
 import Tooltip from '../Tooltip';
+import Textarea from '../Textarea';
+import EditInput from '../EditInput';
+import DateInput from '../DateInput';
 
 export interface FormProps {
   onSubmit(data: Inputs): void;
@@ -52,21 +54,13 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               >
                 Read our Guidelines for Reviewers
               </Link>
-              <div>
-                <textarea
-                  placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
-                  rows={7}
-                  aria-invalid="false"
-                  aria-describedby="review-text-helper-text"
-                  aria-label="content"
-                  className="relative border block text-[16px] h-[186px] resize-none w-full px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('content', { required: true, minLength: 10 })}
-                />
-                {errors.content && (
-                  <Error>Your review must be at least 10 characters.</Error>
-                )}
-              </div>
-
+              <Textarea
+                placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
+                rows={7}
+                aria-label="content"
+                error={errors.content}
+                {...register('content', { required: true, minLength: 10 })}
+              />
               <Link
                 href="https://support.trustpilot.com/hc/articles/223402108"
                 target="_blank"
@@ -84,36 +78,11 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               >
                 Give your review a title
               </label>
-              <div className="flex">
-                <input
-                  placeholder="What's important for people to know?"
-                  type="text"
-                  aria-invalid="false"
-                  aria-describedby="review-title-helper-text"
-                  className="text-[16px] border w-full px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
-                  {...register('title', { required: true, minLength: 4 })}
-                />
-                <div className="flex justify-center items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] min-w-[43px] border border-l-0 border-solid border-[rgb(105,106,106)] rounded-[0px_4px_4px_0px]">
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="inherit"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24px"
-                    height="24px"
-                    className="align-middle fill-[rgb(105,106,106)]"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M16 2.713 13.288 0l-1.567 1.567-9.564 9.56L0 15.996l4.934-2.223 9.145-9.14L16 2.714Zm-2.274.86.86-.86-1.298-1.3-.86.86 1.298 1.3ZM1.962 14.034l1.75-.776-.974-.975-.776 1.751Zm2.62-1.32-1.3-1.3 8.438-8.433L13.02 4.28 4.58 12.714Z"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {errors.title && (
-                <Error>Your title must be at least 4 characters.</Error>
-              )}
+              <EditInput
+                placeholder="What's important for people to know?"
+                error={errors.title}
+                {...register('title', { required: true, minLength: 4 })}
+              />
             </FormSection>
           )}
           {watchRatingCheck && (
@@ -156,20 +125,11 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                     </Tooltip>
                   </span>
                 </div>
-                <div>
-                  <input
-                    type="date"
-                    placeholder="mm/dd/yyyy"
-                    className="text-[14px] border flex w-full appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
-                    {...register('date', { required: true })}
-                  />
-                  {errors.date && (
-                    <Error>
-                      Please confirm when you had this experience. If you don’t
-                      know the exact date, you can estimate.
-                    </Error>
-                  )}
-                </div>
+                <DateInput
+                  placeholder="mm/dd/yyyy"
+                  {...register('date', { required: true })}
+                  error={errors.date}
+                />
               </div>
             </FormSection>
           )}
