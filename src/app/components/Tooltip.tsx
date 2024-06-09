@@ -9,7 +9,7 @@ const Tooltip = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="relative inline-block">
+    <div className="relative">
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -17,7 +17,7 @@ const Tooltip = ({
         {children}
       </div>
       {isHovered && (
-        <p className="absolute w-[360px] p-3 -translate-x-1/2 bg-white rounded-lg shadow-lg -top-[110px] left-1/2 shadow-gray-300 shadow-[0px_5px_10px_5px] tex-wrap text-[14px]">
+        <p className="absolute w-[360px] p-3 -translate-x-1/2 bg-white rounded-lg shadow-lg -top-[110px] left-1/2 shadow-gray-300 shadow-[0px_5px_10px_7px] tex-wrap text-[14px]">
           <span>{content}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
