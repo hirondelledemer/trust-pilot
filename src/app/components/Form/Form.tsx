@@ -8,6 +8,7 @@ import Error from '../Error';
 import Button from '../Button';
 import Link from '../Link';
 import FormSection from './FormSection';
+import Tooltip from '../Tooltip';
 
 export interface FormProps {
   onSubmit(data: Inputs): void;
@@ -121,7 +122,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
           {watchRatingCheck && (
             <FormSection>
               <div className="block relative">
-                <div className="flex mb-[8px]">
+                <div className="flex mb-[8px] items-end">
                   <label
                     htmlFor="review-date-of-experience"
                     className="text-[18px] font-bold items-center flex"
@@ -129,31 +130,33 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                     Date of experience
                   </label>
                   <span>
-                    <div
-                      tabIndex={0}
-                      role="button"
-                      aria-label="Date of Experience tooltip"
-                    >
-                      <svg
-                        viewBox="0 0 16 16"
-                        fill="inherit"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16px"
-                        height="16px"
-                        className="align-middle fill-[rgb(105,106,106)] ml-[4px]"
+                    <Tooltip content="Your review must be about a past experience that took place in the last 12 months. Displaying a date helps others know this review is genuine.">
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        aria-label="Date of Experience tooltip"
                       >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z"
-                        />
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M7.5 7h-.75V6H8.5v5.502h.75v1h-2.5v-1h.75V7ZM6.75 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-                        />
-                      </svg>
-                    </div>
+                        <svg
+                          viewBox="0 0 16 16"
+                          fill="inherit"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16px"
+                          height="16px"
+                          className="align-middle fill-[rgb(105,106,106)] ml-[4px]"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z"
+                          />
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M7.5 7h-.75V6H8.5v5.502h.75v1h-2.5v-1h.75V7ZM6.75 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                          />
+                        </svg>
+                      </div>
+                    </Tooltip>
                   </span>
                 </div>
                 <div>
