@@ -26,7 +26,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
 
   return (
     <div className="flex justify-center">
-      <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] p-[24px] rounded-[8px]">
+      <div className="bg-white border w-screen md:w-[510px] overflow-hidden mt-[16px] p-[16px] md:p-[24px] rounded-[8px] mx-2">
         <form autoComplete="off" noValidate onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <label className="text-[18px] font-bold mb-[8px]">
@@ -51,14 +51,14 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
               >
                 Read our Guidelines for Reviewers
               </Link>
-              <div className="relative w-[460px]">
+              <div>
                 <textarea
                   placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful, and constructive!"
                   rows={7}
                   aria-invalid="false"
                   aria-describedby="review-text-helper-text"
                   aria-label="content"
-                  className="relative border block text-[16px] h-[186px] resize-none w-[460px] px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
+                  className="relative border block text-[16px] h-[186px] resize-none w-full px-[16px] py-[8px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                   {...register('content', { required: true, minLength: 10 })}
                 />
                 {errors.content && (
@@ -79,41 +79,40 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
             <FormSection>
               <label
                 htmlFor="review-title"
-                className="text-[18px] font-bold block mb-[8px]"
+                className="text-[18px] font-bold mb-[8px]"
               >
                 Give your review a title
               </label>
-              <div className="relative w-[460px] h-[48px]">
-                <div className="relative flex w-[460px]">
-                  <input
-                    placeholder="What's important for people to know?"
-                    type="text"
-                    aria-invalid="false"
-                    aria-describedby="review-title-helper-text"
-                    className="text-[16px] border block w-[416.766px] h-[48px] px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
-                    {...register('title', { required: true, minLength: 4 })}
-                  />
-                  <div
-                    role="presentation"
-                    className="items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] flex justify-center w-[43.2344px] border-l-[rgb(105,106,106)] border-none"
+              <div className="flex">
+                <input
+                  placeholder="What's important for people to know?"
+                  type="text"
+                  aria-invalid="false"
+                  aria-describedby="review-title-helper-text"
+                  className="text-[16px] border w-full px-[16px] py-[10px] rounded-[4px_0px_0px_4px] border-solid border-[rgb(105,106,106)]"
+                  {...register('title', { required: true, minLength: 4 })}
+                />
+                <div
+                  role="presentation"
+                  className="items-center bg-[rgb(227,228,228)] text-[rgb(105,106,106)] flex justify-center w-[43.2344px] border-l-[rgb(105,106,106)] border-none"
+                >
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="inherit"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    className="align-middle fill-[rgb(105,106,106)]"
                   >
-                    <svg
-                      viewBox="0 0 16 16"
-                      fill="inherit"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24px"
-                      height="24px"
-                      className="align-middle fill-[rgb(105,106,106)]"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M16 2.713 13.288 0l-1.567 1.567-9.564 9.56L0 15.996l4.934-2.223 9.145-9.14L16 2.714Zm-2.274.86.86-.86-1.298-1.3-.86.86 1.298 1.3ZM1.962 14.034l1.75-.776-.974-.975-.776 1.751Zm2.62-1.32-1.3-1.3 8.438-8.433L13.02 4.28 4.58 12.714Z"
-                      />
-                    </svg>
-                  </div>
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M16 2.713 13.288 0l-1.567 1.567-9.564 9.56L0 15.996l4.934-2.223 9.145-9.14L16 2.714Zm-2.274.86.86-.86-1.298-1.3-.86.86 1.298 1.3ZM1.962 14.034l1.75-.776-.974-.975-.776 1.751Zm2.62-1.32-1.3-1.3 8.438-8.433L13.02 4.28 4.58 12.714Z"
+                    />
+                  </svg>
                 </div>
               </div>
+
               {errors.title && (
                 <Error>Your title must be at least 4 characters.</Error>
               )}
@@ -161,7 +160,7 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
                   <input
                     type="date"
                     placeholder="mm/dd/yyyy"
-                    className="text-[14px] border flex w-[460px] appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
+                    className="text-[14px] border flex w-full appearance-none h-[44px] relative px-[16px] py-[10px] rounded-[4px] border-solid border-[rgb(105,106,106)]"
                     {...register('date', { required: true })}
                   />
                   {errors.date && (
